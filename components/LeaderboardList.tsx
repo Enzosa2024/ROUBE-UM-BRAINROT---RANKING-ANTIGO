@@ -7,46 +7,45 @@ interface LeaderboardListProps {
 
 const LeaderboardList: React.FC<LeaderboardListProps> = ({ players }) => {
   return (
-    <div className="w-full max-w-4xl mx-auto bg-slate-900/80 backdrop-blur-md rounded-xl border border-slate-700 overflow-hidden shadow-2xl">
-      <div className="grid grid-cols-12 gap-4 p-4 border-b border-slate-700 bg-slate-800/50 text-slate-400 text-sm font-bold uppercase tracking-wider sticky top-0 z-20 backdrop-blur-md">
+    <div className="w-full bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800">
+      <div className="grid grid-cols-12 gap-2 p-3 bg-zinc-800 text-zinc-400 text-xs font-bold uppercase">
         <div className="col-span-2 md:col-span-1 text-center">#</div>
         <div className="col-span-6 md:col-span-8">Player</div>
         <div className="col-span-4 md:col-span-3 text-right">Patrimônio</div>
       </div>
       
-      <div className="max-h-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-transparent">
+      <div>
         {players.map((player) => (
           <div 
             key={player.rank} 
             className={`
-              grid grid-cols-12 gap-4 p-4 items-center border-b border-slate-800/50 
-              hover:bg-slate-800 transition-colors duration-200 group
-              ${player.isUser ? 'bg-blue-900/20 border-l-4 border-l-blue-500' : ''}
+              grid grid-cols-12 gap-2 p-3 items-center border-b border-zinc-800 last:border-0
+              ${player.isUser ? 'bg-blue-900/10' : 'hover:bg-zinc-800/50'}
             `}
           >
             {/* Rank */}
-            <div className="col-span-2 md:col-span-1 text-center font-mono font-bold text-slate-500 group-hover:text-white transition-colors">
+            <div className="col-span-2 md:col-span-1 text-center font-mono text-zinc-500 font-bold">
               {player.rank}
             </div>
 
             {/* Name */}
-            <div className="col-span-6 md:col-span-8 flex items-center gap-3">
-              <span className={`font-semibold truncate ${player.isUser ? 'text-blue-400' : 'text-slate-200'}`}>
+            <div className="col-span-6 md:col-span-8">
+              <span className={`font-medium ${player.isUser ? 'text-blue-400' : 'text-zinc-200'}`}>
                 {player.username}
-                {player.isUser && <span className="ml-2 text-[10px] bg-blue-600 text-white px-1.5 py-0.5 rounded uppercase tracking-wide">Você</span>}
+                {player.isUser && <span className="ml-2 text-[10px] bg-blue-900 text-blue-200 px-1 rounded border border-blue-800">VOCÊ</span>}
               </span>
             </div>
 
             {/* Wealth */}
-            <div className="col-span-4 md:col-span-3 text-right font-mono text-slate-300 font-medium group-hover:text-green-400 transition-colors">
+            <div className="col-span-4 md:col-span-3 text-right font-mono text-zinc-400 text-sm">
               {player.wealth}
             </div>
           </div>
         ))}
         
         {players.length === 0 && (
-           <div className="p-8 text-center text-slate-500">
-             Nenhum player encontrado. O brainrot consumiu tudo.
+           <div className="p-8 text-center text-zinc-500 text-sm">
+             Nenhum player encontrado.
            </div>
         )}
       </div>
