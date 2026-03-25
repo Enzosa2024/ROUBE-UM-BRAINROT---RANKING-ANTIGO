@@ -30,9 +30,12 @@ const App: React.FC = () => {
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-black tracking-tighter mb-4 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent">
             Roube um Brainrot
           </h1>
+          <p className="text-zinc-600 text-[10px] font-black uppercase tracking-[0.4em] mb-4">
+            Ranking Antigo
+          </p>
           
           <div className="relative max-w-sm mx-auto mt-10">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-fuchsia-500/50" size={18} />
